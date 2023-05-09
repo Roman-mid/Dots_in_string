@@ -27,9 +27,9 @@
         <li class="nume__item">
           <a href="#" class="menu__link">описание решения</a>
         </li>
-        <li class="nume__item">
+        <!-- <li class="nume__item">
           <a href="#" class="menu__link">о себе</a>
-        </li>
+        </li> -->
       </ul>
     </nav>
   </header>
@@ -65,41 +65,24 @@
             </h2>
             <div class="desc-task__content">
               <p class="desc-task__text">
-                Задача оказалась не так проста, как кажется на первый взгляд. Когда я прочитал ТЗ я подумал, Пффф… всего-то. Потратив минут 10 написал скрипт, который возвращает массив со строками и в каждом элементе массива добавляется точка после следующего символа [‘abcd’, ‘a.bcd’, ‘a.b.cd’, ‘a.b.c.d’]. Но потом подумал, что это слишком простая таска и перечитал тз еще раз. И сразу понял, что времени уйдет куда больше чем 10мин. 
+                Оснойной принцип работы заключается в следующем. Берем строку '1234' ПЕРЕМЕЩАЕМ точку после каждого символа строки и пушим в массив. Получаем массив [‘1234’ , ‘1.234’ , ’12.34’ , ‘123.4’]. Затем берем следующий эл-т массива (1.234) и проделываем тоже самое. Получается одна точка уже стоит в строке и одну точку мы ПЕРЕДВИГАЕМ между символами. Проверяем нет ли такого элемента в массиве и нет ли 2 точек подрят (1..234) и пушим в массив. Затем берем следующий эл-т массива и повторяем. Рекурсия остановится когда в масиве появится эл-т 1.2.3.4
               </p>
-              <p class="desc-task__text">
-                Я решил воспользоваться методом рекурсии и за основное условие принял сравнение длин вводной строки и максимально длинного элемента массива. Если вводная строка 1234 имеет длину 4 символа, и если после каждого элемента будет стоять точка 1.2.3.4 длина этой строки = 7 символов,  это и будет максимально длинный элемент массива. Если это сравнение ложно, то выполняется основной код. 
-              </p>
-              <h3 class="desc-task__title">
-                Основная логика
-              </h3>
-              <ol class="desc-task__list">
-                <li class="desc-task__item">
-                  <span>
-                    Нашу вводную строку пушим в массив под нулевым индексом.
-                  </span>
-                </li>
-                <li class="desc-task__item">
-                  <span>
-                    Берем нулевой эл-т массива (не измененная строка) и с помощью цикла while создаем новую строку с точкой после 1го символа, создаем условие if которое проверяет нет ли такого эл-та в массиве и с помощью регулярного выражения проверяем нет ли в новой строке 2 точки подряд. Если условие срабатывает, то  пушим эту новую стоку в массив и повторяем действие, передвигая точку на один символ вперед. По окончании цикла while получаем массив [‘1234’ , ‘1.234’ , ’12.34’ , ‘123.4’].
-                  </span>
-                </li>
-                <li class="desc-task__item">
-                  <span>
-                    Затем запускаем рекурсию и проделываем все тоже самое для следующего эл-та массива.  Перед тем как запушить новую строку в массив срабатывает проверка  наличия эл-та в массиве и двух точек в строке. 
-                  </span>
-                </li>
-                <li class="desc-task__item">
-                  <span>
-                    Действие будет повторяться пока в массиве не окажется максимально длинный эл-т 1.2.3.4  
-                  </span>
-                </li>
-              </ol>
-
               <h3 class="desc-task__title">
                 Реализация логики
               </h3>
               <div class="code">
+                <span class="code__span">
+                  const str = '123456'
+                </span>
+                <span class="code__span">
+                  let arr = [];
+                </span>
+                <span class="code__span">
+                  arr.push(str);
+                </span>
+                <span class="code__span">
+                  let i = 0;
+                </span>
                 <span class="code__span">
                   function getArr(str) {
                 </span>
@@ -174,68 +157,7 @@
 
 
 
-        <!-- STUDYING START -->
-        <div class="wrap wrap-studying">
-          <div class="studying">
-            <h2 class="studying__title">
-              Немного о себе
-            </h2>
-            <div class="studying-content">
-              <div class="education">
-                <h3 class="education__title">
-                  Образование
-                </h3>
-                <p class="education__text">
-                  2008-2012 Донецкий колледж строительства и архитектуры: Проектирование гражданских сооружений. <br>
-                  2012-2017 Донецкий национальный технический университет: Строительство и реконструкция горных предприятий. 
-                </p>
-              </div>
-              <div class="front">
-                <h3 class="front__title">
-                  Front-end developer
-                </h3>
-                <p class="front__text">
-                  Первое знакомство с веб разработкой началось с курса верстальщика онлай школы 
-                  <a href="https://my.wayup.in/course/6" class="front__link">WayUP</a> 
-                  где изучал HTML / CSS и совсем немноооого JS. С этого собственно все и закрутилось. Тогда я еще не знал что это не язык программирования, а язык разметки)) Но создавать правильный DOM и двигать блоки тоже нужно уметь) 
-                </p>
-              </div>
-              <div class="js">
-                <h3 class="js__title">
-                  JavaScript изучил, используя следующие материалы:
-                </h3>
-                <ul class="js__list">
-                  <li class="js__item">
-                    <span class="js__text">YouTube канал </span>
-                    <a href="https://www.youtube.com/watch?v=CxgOKJh4zWE" target="_blank" class="js__link">Bogdan Stashchuk.</a>
-                  </li>
-                  <li class="js__item">
-                    <span class="js__text">YouTube канал </span>
-                  <a href="https://www.youtube.com/watch?v=maPRR_jjyOE" target="_blank" class="js__link">ВебКамеди.</a>
-                </li>
-                <li class="js__item">
-                  <span class="js__text">Курсы </span>
-                  <a href="https://www.youtube.com/@IvanPetrychenkoDev/about" target="_blank" class="js__link">Иван Петреченко.</a>
-                </li>
-                <li class="js__item">
-                  <span class="js__text">Книга</span>
-                  <a href="https://code.mu/ru/javascript/book/prime/" target="_blank" class="js__link">Учебник по JavaScript</a>
-                </li>
-              </ul>
-            </div>
-            <div class="react">
-              <h3 class="react__title">
-                Сейчас изучаю:
-              </h3>
-              <a href="https://www.udemy.com/course/react-ru/" target="_blank" class="react__link">
-                Bogdan Stashchuk- Полный курс по React
-              </a>
-            </div>
-            <a href="https://github.com/Roman-mid" target="_blank" class="git">GitHub</a>
-            </div>
-          </div>
-        </div>
-        <!-- STUDYING START -->
+        
     </div>
   </section>
 

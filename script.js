@@ -4,8 +4,6 @@ const inp = document.querySelector('.input'),
       count = document.querySelector('.count'),
       btn = document.querySelector('.btn'),
       menu = document.querySelectorAll('.menu__link'),
-      task = document.querySelector('.wrap-task'),
-      persone = document.querySelector('.wrap-studying'),
       getResult = document.querySelector('.get-result'),
 
       wraps = document.querySelectorAll('.wrap');
